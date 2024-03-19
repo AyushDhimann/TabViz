@@ -1,0 +1,46 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "tabviz"
+version = "1.1.0"
+description = "A Python module for working with the Tableau"
+authors = ["Ayush Dhiman <ayushdhiman272@gmail.com>"]
+license = "GNU"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+tableauserverclient = "^0.30"
+
+[tool.poetry.dev-dependencies]
+argparse = "^1.4.0"
+black = "23.7"
+mock = "^4.0.3"
+mypy = "1.4"
+pytest = "^7.0"
+pytest-cov = "^3.0.0"
+pytest-subtests = "^0.5.0"
+requests-mock = ">=1.0,<2.0"
+
+[tool.black]
+line-length = 120
+target-version = ['py37', 'py38', 'py39', 'py310', 'py311', 'py312']
+
+[tool.tabvizpy]
+check_untyped_defs = false
+disable_error_code = [
+    'misc',
+    'annotation-unchecked'
+]
+folders = ["static"]
+show_error_codes = true
+ignore_missing_imports = true
+
+[tool.poetry.scripts]
+
+[[tool.poetry.source]]
+name = "tabviz"
+url = "https://github.com/AyushDhimann/tabviz"
+secondary = true

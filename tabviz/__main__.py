@@ -24,7 +24,6 @@ shutil.copy(file_in_static_folder, destination_file)
 
 
 def tableau_online_signin(site,site_id,token_name,token_secret,api_version):
-    print(api_version)
     signin_url = f'https://{site}/api/{api_version}/auth/signin'
     signin_xml = f'''
     <tsRequest>
@@ -33,7 +32,7 @@ def tableau_online_signin(site,site_id,token_name,token_secret,api_version):
       </credentials>
     </tsRequest>
     '''
-    print(signin_url,signin_xml)
+    # print(signin_url,signin_xml)
     response = requests.post(signin_url, data=signin_xml, headers={'Content-Type': 'text/xml'})
     if response.status_code == 200:
         root = ET.fromstring(response.text)
@@ -305,7 +304,7 @@ def display_tableau_viz(src):
 def construct_url(site, site_id,workbook_name):
     global src
     src = f"https://{site}/#/site/{site_id}/views/{workbook_name}/Sheet4"
-    print(src)
+    print("Sharable URL : ", src)
     return src
 
 def generate_random_text(length):
@@ -349,5 +348,5 @@ token_secret = os.getenv('token_secret')
 csv_file = os.getenv('csv')
 api_key = os.getenv('api_key')
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
