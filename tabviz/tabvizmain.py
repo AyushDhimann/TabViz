@@ -14,14 +14,6 @@ import random
 import string
 import hashlib
 
-file_in_static_folder = importlib.resources.files('tabviz').joinpath(os.path.join('static', 'example.twbx'))
-destination_folder = os.getcwd()
-tabviz_folder = os.path.join(destination_folder, 'tabviz')
-if not os.path.exists(tabviz_folder):
-    os.makedirs(tabviz_folder)
-destination_file = os.path.join(tabviz_folder, "example.twbx")
-shutil.copy(file_in_static_folder, destination_file)
-
 
 def tableau_online_signin(site,site_id,token_name,token_secret,api_version):
     signin_url = f'https://{site}/api/{api_version}/auth/signin'
@@ -323,9 +315,19 @@ def main():
     replace_table_contents_with_xml_data(xml_file, xml_Data)
     replace_table_contents_with_xml_data_for_columns(xml_file,xml_column_data)
     process_file_repack(tabviz_folder)
+    workbook_name = generate_random_text(5)
     url = construct_url(site, site_id, workbook_name)
     publish_workbook(token_name,token_secret, site_id, project_id, workbook_name, path_to_workbook,site)
     display_tableau_viz(url)
+
+file_in_static_folder = importlib.resources.files('tabviz').joinpath(os.path.join('static', 'example.twbx'))
+destination_folder = os.getcwd()
+tabviz_folder = os.path.join(destination_folder, 'tabviz')
+if not os.path.exists(tabviz_folder):
+    os.makedirs(tabviz_folder)
+destination_file = os.path.join(tabviz_folder, "example.twbx")
+shutil.copy(file_in_static_folder, destination_file)
+
 
 project_id = " "
 destination_file = os.path.join(tabviz_folder, "example.twbx")
@@ -337,7 +339,6 @@ table_contents_column = ""
 xml_column_data = ' '
 xml_Data = " "
 api_version = '3.22'
-workbook_name = generate_random_text(5)
 path_to_workbook = os.path.join(tabviz_folder, "..", "Data.twbx")
 
 #ENVS
