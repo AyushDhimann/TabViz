@@ -4,11 +4,14 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "tabviz"
-version = "1.1.0.7"
+version = "1.1.0.9"
 description = "A Python module for working with the Tableau"
 authors = ["Ayush Dhiman <ayushdhiman272@gmail.com>"]
 license = "GNU"
 readme = "README.md"
+homepage = "https://github.com/AyushDhimann/TabViz"
+repository = "https://github.com/AyushDhimann/TabViz"
+keywords = ["Tableau", "TabViz"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -45,7 +48,3 @@ ignore_missing_imports = true
 name = "tabviz"
 url = "https://github.com/AyushDhimann/tabviz"
 secondary = true
-
-[project.urls]
-Homepage = "https://github.com/AyushDhimann/TabViz"
-Repository = "https://github.com/AyushDhimann/TabViz"
