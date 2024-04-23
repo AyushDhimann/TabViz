@@ -11,3 +11,8 @@ poetry build
 ```bash
 poetry publish
 ```
+
+
+# Demo
+
+Try out the demo on [Google Colab](https://colab.research.google.com/drive/1yj_0_T4KUBrWdvrg9TDFUzhavnHZ2Wqe?usp=sharing)
